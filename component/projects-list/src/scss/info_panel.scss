@@ -1,0 +1,112 @@
+
+@import "reset.scss";
+
+// $info_panel_width: 100%;
+// $list_panel_theme_color:#00BCD4;
+$list_panel_theme_color:#039BE5;
+$info_panel_title_height:53px;
+$info_panel_section_padding: 20px;
+
+$info_panel_width: 400px !default;
+$info_panel_img_height: 200px !default;
+$info_panel_section_padding: 10px !default;
+$info_panel_section_tab:20px !default;
+$info_panel_title_height:44px !default;
+$list_panel_theme_color: blue !default;
+
+$mobile_info_panel_section_tab:10px;
+
+.info_panel{
+	width: $info_panel_width;
+	background-color:white;
+	// border: 1px solid #777;
+	// border-radius: 5px;
+	@include shadow(0 0 10px rgba(0,0,0,0.2))
+	float:left;
+	overflow:hidden;
+	div.poster{
+		width: 100%;
+		height: $info_panel_img_height;
+		background-size: cover;
+	}
+	section{
+		/*width: 100%;*/
+		padding: $info_panel_section_padding 0;
+		border-top: dashed 1px rgba(0,0,0, .3);
+		div.title{
+			padding: 0 $info_panel_section_tab;
+			/*padding-right: 20px;*/
+			background-color: $list_panel_theme_color;
+			@include gradient(90deg, darken($list_panel_theme_color, 7%), $list_panel_theme_color);
+			@include font(26px, white);
+			line-height: $info_panel_title_height;
+			float: left;
+			/*margin-left: -#{$info_panel_section_padding};*/
+			/*position: relative;*/
+			/*left: -#{$info_panel_section_padding};*/
+			position: relative;
+			&::after{
+				border: $info_panel_title_height/2 solid transparent;
+				border-left: $info_panel_title_height/2.5 solid $list_panel_theme_color;
+				width: 0;
+				height: 0;
+				position: absolute;
+				content: ' ';
+				margin-left: $info_panel_section_tab;
+			}
+			/*overflow-y:hidden;*/
+		}
+		ul.info{
+			width: 100%;
+			margin-top: $info_panel_title_height + $info_panel_section_padding;
+			list-style-type: none;
+			padding-left: $info_panel_section_tab;
+			margin-bottom: 0;
+			li{
+				line-height: 25px;
+				@include font(14px, #333)
+				.define{
+					display:block; width:25%; float:left;
+				}
+				.descrip{
+					display:block; width:70%; margin-left:30%;
+				}
+			}
+		}
+		.section_title{
+			background-color: lighten($list_panel_theme_color,0);
+			@include gradient(130deg, $list_panel_theme_color, lighten($list_panel_theme_color,15%));
+			padding-left: $info_panel_section_tab;
+			@include font(17px, white );
+			line-height:30px;
+			margin-top: -#{$info_panel_section_padding};
+			width: auto;
+		}
+		p{
+			padding: 0 $info_panel_section_padding;
+			margin: 20px 0 0 0;
+		}
+	}
+}
+
+#app {
+	.info_panel{
+		section{
+			div.title{
+				padding: 0 $mobile_info_panel_section_tab;
+				&::after{
+					margin-left: $mobile_info_panel_section_tab;
+				}
+			}
+			ul.info{
+				padding-left: $mobile_info_panel_section_tab;
+			}
+			.section_title{
+				padding-left: $mobile_info_panel_section_tab;
+			}
+			p{
+				padding: 0 $mobile_info_panel_section_tab;
+			}
+		}
+	}
+}

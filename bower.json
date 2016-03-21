@@ -1,0 +1,19 @@
+{
+  "name": "sqip",
+  "authors": [
+    "GaoMeng <gaomeng1900@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

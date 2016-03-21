@@ -1,0 +1,67 @@
+
+@import "reset.scss";
+
+$info_panel_width: 400px !default;
+$info_panel_img_height: 200px !default;
+$info_panel_section_padding: 10px !default;
+$info_panel_section_tab:20px !default;
+$info_panel_title_height:44px !default;
+$info_panel_color: blue !default;
+
+.info_panel{
+	width: $info_panel_width;
+	border: 1px solid #777;
+	border-radius: 5px;
+	div.poster{
+		width: 100%;
+		height: $info_panel_img_height;
+		background-size: cover;
+	}
+	section{
+		/*width: 100%;*/
+		padding: $info_panel_section_padding 0;
+		border-top: dashed 1px #333;
+		div.title{
+			padding: 0 $info_panel_section_tab;
+			/*padding-right: 20px;*/
+			background-color: $info_panel_color;
+			@include font(26px, white);
+			line-height: $info_panel_title_height;
+			float: left;
+			/*margin-left: -#{$info_panel_section_padding};*/
+			/*position: relative;*/
+			/*left: -#{$info_panel_section_padding};*/
+			position: relative;
+			&::after{
+				border: $info_panel_title_height/2 solid transparent;
+				border-left: $info_panel_title_height/2.5 solid $info_panel_color;
+				width: 0;
+				height: 0;
+				position: absolute;
+				content: ' ';
+				margin-left: $info_panel_section_tab;
+			}
+			/*overflow-y:hidden;*/
+		}
+		ul.info{
+			width: 100%;
+			margin-top: $info_panel_title_height + $info_panel_section_padding;
+			list-style-type: none;
+			padding-left: $info_panel_section_tab;
+			li{
+				line-height: 25px;
+				@include font(17px, #333)
+			}
+		}
+		.section_title{
+			background-color: #D8D8D8;
+			padding-left: $info_panel_section_tab;
+			@include font(15px, #111);
+			line-height:30px;
+			margin-top: -#{$info_panel_section_padding};
+		}
+		p{
+			padding: 0 $info_panel_section_padding;
+		}
+	}
+}

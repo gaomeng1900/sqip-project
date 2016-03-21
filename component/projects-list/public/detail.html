@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>detail</title>
+	<!-- <link rel="stylesheet" href="css/card.css"> -->
+	<link rel="stylesheet" href="http://localhost:3000/css/info_panel.css">
+	<link rel="stylesheet" href="http://localhost:3000/css/list_panel.css">	
+	<style>
+		body{
+			max-width: 1000px;
+		}
+		.list_panel{
+			width: 60%;
+		}
+		.info_panel{
+			width: 35%;
+		}
+	</style>
+</head>
+<body id="body">
+
+	<!-- <projects></projects> -->
+
+	<newslist></newslist>
+
+	<infopanel></infopanel>
+
+	<div class="clear"></div>
+
+	<script src="http://localhost:3000/js/lib/vue/dist/vue.js"></script>
+	<script src="http://localhost:3000/js/lib/vue-resource/dist/vue-resource.js"></script>
+	<script src="http://localhost:3000/js/newslist.js"></script>
+	<script src="http://localhost:3000/js/infopanel.js"></script>
+	<script src="http://localhost:3000/js/main.js"></script>
+	<script>
+		vvv = new Vue({
+			el:'#body'
+		})
+	</script>
+</body>
+</html>

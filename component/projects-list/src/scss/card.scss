@@ -1,0 +1,110 @@
+
+@import "reset.scss";
+
+$card_info_height: 60px;
+$card_theme_color: #66BB6A;
+$card_width: 30% ;
+$side_align:true ; 
+
+$card_width: 300px !default;
+$card_img_height: 200px !default;
+$card_info_height: 100px !default;
+$card_theme_color: blue !default;
+$side_align:false !default;
+
+$num_per_col: 3 ;
+$space_width: (100% - $card_width*$num_per_col)/($num_per_col) ;
+
+$mobile_card_width: 100%;
+$mobile_num_per_col: 1 ;
+$mobile_space_width: (100% - $card_width*$mobile_num_per_col)/($mobile_num_per_col) ;
+
+#projects_wrapper{
+	// border:1px solid #333;
+	padding: 20px $space_width/2;
+	@if $side_align == true {
+		margin: 0 -$space_width;
+	}
+	.card{
+		width: $card_width;
+		display: block;
+		padding:0;
+		margin:$space_width/2;
+	    text-decoration: none;
+	    overflow: hidden;
+	    float: left;
+	    @include trans();
+	    @include shadow(0 0 5px rgba(0,0,0,0.2));
+		.card_img{
+			width: 100%;
+			height: $card_img_height;
+			background-size: cover;
+		}
+		.card_info{
+			// box-sizing: border-box;
+			height: $card_info_height;
+			background-color:$card_theme_color;
+			padding:$card_info_height *1/10 $card_info_height *2/10 0 $card_info_height *2/10;
+			// padding-bottom:0;
+			margin:0;
+			.card_info_title{
+				height: $card_info_height *1/2;
+				line-height: $card_info_height *1/2;
+				padding:0;margin:0;
+				@include font($card_info_height *3.5/10, white);
+				@include elli;
+			}
+			.card_info_content{
+				height: $card_info_height *4/10;
+				line-height: $card_info_height *4/10;
+				padding:0;margin:0;
+				@include font($card_info_height *2.3/10, white);
+				.time, .place{
+					margin-right: 10px;
+					i{
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+		&:hover{
+			@include shadow(0 0 10px rgba(0,0,0,0.4));
+			// @include scale(1.7,1.7);
+			@include rotate(2);
+		}
+	}
+	#rolling_tips{
+		@include center-block(true);
+		box-sizing: border-box;
+		// height: 30px;
+		line-height: 50px;
+		width: 150px;
+		height: 50px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		@include font(18px, white);
+		background-color: $card_theme_color;
+		// padding:20px 30px;
+		&:hover{
+			// background-color:#eee;
+			cursor: pointer;
+		}
+	}
+}
+
+#app{
+	#projects_wrapper{
+		// border:1px solid #333;
+		padding: 20px 0;
+		@if $side_align == true {
+			margin: 0;
+		}
+		.card{
+			width: $mobile_card_width;
+			margin:10px 0;
+		}
+		#rolling_tips{
+			margin-bottom: 0;
+		}
+	}
+}

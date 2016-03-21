@@ -1,0 +1,57 @@
+
+@import "reset.scss";
+
+$card_info_height: 50px;
+// $card_theme_color: rgba(255,255,255,0.6);
+
+$card_width: 300px !default;
+$card_img_height: 200px !default;
+$card_info_height: 100px !default;
+$card_theme_color: blue !default;
+
+
+.card{
+	width: $card_width;
+	display: block;
+	padding:0;
+	margin:0;
+    text-decoration: none;
+    overflow: hidden;
+    @include trans();
+	.card_img{
+		width: 100%;
+		height: $card_img_height;
+		background-size: cover;
+	}
+	.card_info{
+		// box-sizing: border-box;
+		height: $card_info_height;
+		background-color:$card_theme_color;
+		padding:$card_info_height *1/10 $card_info_height *2/10 0 $card_info_height *2/10;
+		// padding-bottom:0;
+		margin:0;
+		.card_info_title{
+			height: $card_info_height *1/2;
+			line-height: $card_info_height *1/2;
+			padding:0;margin:0;
+			@include font($card_info_height *4/10, white);
+		}
+		.card_info_content{
+			height: $card_info_height *4/10;
+			line-height: $card_info_height *4/10;
+			padding:0;margin:0;
+			@include font($card_info_height *3/10, white);
+			.time, .place{
+				margin-right: 10px;
+				i{
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+	&:hover{
+		@include box-shadow(0 0 10px rgba(0,0,0,0.4));
+		// @include scale(1.7,1.7);
+		@include rotate(2);
+	}
+}

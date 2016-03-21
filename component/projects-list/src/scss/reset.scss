@@ -1,0 +1,85 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1457762957_2126236.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1457762957_2126236.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1457762957_2126236.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1457762957_2126236.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1457762957_2126236.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+                    
+.iconfont{
+    font-family:"iconfont" !important;
+    // font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;}
+
+
+@mixin center-block($center-block-test:false) {
+    margin-left:auto;
+    margin-right:auto;
+    @if $center-block-test {text-align:center;}
+}
+
+@mixin font($font-size:12px, $color:#333) {
+	font-family: sans-serif;
+	font-size:$font-size;
+	color: $color;
+}
+
+@mixin trans($trans-ottr: all) {
+	-moz-transition: $trans-ottr 0.3s ease;
+	-webkit-transition: $trans-ottr 0.3s ease;
+	-o-transition: $trans-ottr 0.3s ease;
+	transition: $trans-ottr 0.3s ease;
+}
+
+@mixin shadow($shadow...){
+	//Firefox4.0-
+	-moz-box-shadow:$shadow;
+	//Safari and Google chrome10.0-
+	-webkit-box-shadow:$shadow;
+	//Firefox4.0+ 、 Google chrome 10.0+ 、 Oprea10.5+ and IE9
+	box-shadow: $shadow;
+}
+
+@mixin scale($scale-x:1, $scale-y:1) {
+	transform: scale($scale-x, $scale-y);
+	-ms-transform: scale($scale-x, $scale-y);	/* IE 9 */
+	-webkit-transform: scale($scale-x, $scale-y);	/* Safari 和 Chrome */
+	-o-transform: scale($scale-x, $scale-y);	/* Opera */
+	-moz-transform: scale($scale-x, $scale-y);	/* Firefox */
+}
+
+@mixin rotate($rotate-deg:0) {
+	transform: rotate(#{$rotate-deg}deg);
+	-ms-transform: rotate(#{$rotate-deg}deg);		/* IE 9 */
+	-webkit-transform: rotate(#{$rotate-deg}deg);	/* Safari and Chrome */
+	-o-transform: rotate(#{$rotate-deg}deg);		/* Opera */
+	-moz-transform: rotate(#{$rotate-deg}deg);		/* Firefox */
+}
+
+.clear{
+	clear:both;
+}
+
+@mixin clean_a($clean_a_all:false){
+	text-decoration: none;
+	&:hover{
+		@if $clean_a_all {text-decoration: none;}
+		@else {text-decoration: underline;}
+	}
+}
+
+@mixin elli{
+	-o-text-overflow: ellipsis;/*兼容opera*/
+	text-overflow: ellipsis;/*这就是省略号喽*/		  
+	overflow: hidden;/*设置超过的隐藏*/
+	white-space: nowrap;/*设置不折行*/
+}
+
+@mixin gradient($gradient_opt...){
+	background-image:-webkit-linear-gradient($gradient_opt);
+	background-image:linear-gradient($gradient_opt);
+}

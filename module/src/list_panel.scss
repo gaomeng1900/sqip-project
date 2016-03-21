@@ -1,0 +1,109 @@
+
+@import "reset.scss";
+
+$list_panel_li_height: 100px;
+$list_panel_thumb_width: 150px;
+
+$list_panel_width: 400px !default;
+$list_panel_li_height: 150px !default;
+$list_panel_thumb_width: 200px !default;
+$list_panel_padding: 10px !default;
+$list_panel_tab:20px !default;
+$list_panel_title_height:43px !default;
+
+.list_panel{
+	width:$list_panel_width;
+	border: 1px solid #777;
+	border-radius: 5px;
+	overflow:hidden;
+	.list_panel_header{
+		background-color: #D8D8D8;
+		padding-left: $list_panel_tab;
+		@include font(15px, #111);
+		line-height:30px;
+		li {
+			float: left;
+			position: relative;
+			margin: 0 20px 12px -19px;
+			padding-left: 12px;
+			&:after{
+				border: 10px solid transparent;
+				border-left: 10px solid #fff;
+				width: 0;
+				height: 0;
+				position: absolute;
+				top: 0;
+				right: -18px;
+				content: ' ';
+				background-color:transparent;
+			}
+
+		}
+	}
+	ul{
+		list-style-type: none;
+		padding: 0;
+		margin:0;
+		a{
+			@include clean_a(true);
+			li{
+				padding-left: $list_panel_tab;
+				padding-right: $list_panel_tab;
+				position:relative;
+				box-sizing: border-box;
+				height: $list_panel_li_height;
+				border-top: dashed 1px #333;
+				padding-top:$list_panel_padding;
+				.thumbnail{
+					width: $list_panel_thumb_width;
+					height: $list_panel_li_height - $list_panel_padding * 2;
+					background-size: cover;
+					float: left;
+				}
+				.text{
+					// float: left;
+					height: $list_panel_li_height - $list_panel_padding * 2;
+					margin-left: $list_panel_thumb_width + $list_panel_tab ;
+					line-height: 25px;
+					h3{
+						margin:0;
+						line-height: ($list_panel_li_height - $list_panel_padding) *3/10;
+						@include font(($list_panel_li_height - $list_panel_padding) *2/10, #555);
+					}
+					p{
+						margin:0;
+						line-height: ($list_panel_li_height - $list_panel_padding) *2/10;
+						@include font(($list_panel_li_height - $list_panel_padding) *1.3/10, #555);
+					}
+					.info{
+						margin:0;
+						line-height: ($list_panel_li_height - $list_panel_padding) *2/10;
+						@include font(($list_panel_li_height - $list_panel_padding) *1.5/10, #555);
+						position: absolute;
+						top: ($list_panel_li_height - $list_panel_padding) * 8/10;
+					}
+				}
+			}
+		}
+	}
+	#rolling_tips{
+		@include center-block(true);
+		box-sizing: border-box;
+		height: 30px;
+		line-height: 30px;
+		border-top: dashed 1px #333;
+		&.rolling_tips_tip:before{
+			content: "update";
+		}
+		&.rolling_tips_updating:before{
+			content: "updating";
+		}
+		&.rolling_tips_done:before{
+			content: "done";
+		}
+		&:hover{
+			background-color:#eee;
+			cursor: pointer;
+		}
+	}
+}
